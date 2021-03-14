@@ -1,3 +1,3 @@
-# Strapi application
+# Complexud Cms Server
 
-A quick description of your strapi application
+Servidor de gestión de contenido del grupo complejidad
