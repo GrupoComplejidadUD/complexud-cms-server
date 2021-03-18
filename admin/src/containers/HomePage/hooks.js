@@ -5,21 +5,21 @@ import { useModels } from "../../hooks";
 // ---------- LOCAL UTILS ----------
 const generateLinks = (links) =>
   links.map((link) => ({
-    destination: `/plugins/content-manager/${link.kind}/${link.uid}/create`,
+    destination: `/plugins/content-manager/${link.kind}/${link.uid}`,
     label: link.info.label,
     permissions: [
       {
         action: "plugins::content-manager.explorer.create",
         subject: link.uid,
       },
-      // {
-      //   action: "plugins::content-manager.explorer.read",
-      //   subject: link.uid
-      // },
-      // {
-      //   action: "plugins::content-manager.explorer.update",
-      //   subject: link.uid,
-      // },
+      {
+        action: "plugins::content-manager.explorer.read",
+        subject: link.uid,
+      },
+      {
+        action: "plugins::content-manager.explorer.update",
+        subject: link.uid,
+      },
     ],
   }));
 

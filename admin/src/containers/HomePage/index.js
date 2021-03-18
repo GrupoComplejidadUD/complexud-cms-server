@@ -16,6 +16,7 @@ import {
   Block,
   Container,
   LinkWrapper,
+  Button,
   P,
   Wave,
   Separator,
@@ -44,6 +45,7 @@ const HomePage = ({ history: { push } }) => {
     return <LoadingIndicatorPage />;
   }
 
+  const navigateTo = (path) => () => push(path);
   const username = get(auth.getUserInfo(), "firstname", "");
   return (
     <>
@@ -61,34 +63,48 @@ const HomePage = ({ history: { push } }) => {
                   name: upperFirst(username),
                 }}
               >
-                {(msg) => <h2 id="mainHeader">{msg}</h2>}
+                {(msg) => <h1 id="mainHeader">{msg}</h1>}
               </FormattedMessage>
 
               <FormattedMessage id="app.components.HomePage.welcomeBlock.content.again">
                 {(msg) => <P>{msg}</P>}
               </FormattedMessage>
-              <Separator style={{ marginTop: 37, marginBottom: 36 }} />
-              <div>
-                {collectionsLinks.map((link) => (
-                  <button
-                    key={link.label}
-                    onClick={() => push(link.destination)}
-                  >
-                    {link.label}
-                  </button>
-                ))}
-              </div>
-              <Separator style={{ marginTop: 37, marginBottom: 36 }} />
-              <div>
-                {singlesLinks.map((link) => (
-                  <button
-                    key={link.label}
-                    onClick={() => push(link.destination)}
-                  >
-                    {link.label}
-                  </button>
-                ))}
-              </div>
+
+              {collectionsLinks.length > 0 && (
+                <>
+                  <Separator />
+                  <h4>Agregar Nuevo Contenido</h4>
+                  <br />
+                  <div>
+                    {collectionsLinks.map((link) => (
+                      <Button
+                        key={link.label}
+                        onClick={navigateTo(`${link.destination}/create`)}
+                      >
+                        {link.label}
+                      </Button>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {singlesLinks.length > 0 && (
+                <>
+                  <Separator />
+                  <div>
+                    <h4>Actualizar Valores</h4>
+                    <br />
+                    {singlesLinks.map((link) => (
+                      <Button
+                        key={link.label}
+                        onClick={navigateTo(`${link.destination}/update`)}
+                      >
+                        {link.label}
+                      </Button>
+                    ))}
+                  </div>
+                </>
+              )}
             </Block>
           </div>
 
@@ -105,7 +121,7 @@ const HomePage = ({ history: { push } }) => {
                 Go to Website
               </ALink>
               <Separator style={{ marginTop: 18, marginBottom: 18 }} />
-              <h2>Administrar las Redes Sociales</h2>
+              <h3>Administrar las Redes Sociales</h3>
               <div
                 className="row social-wrapper"
                 style={{
