@@ -1,4 +1,15 @@
 {
+  "HomePage.info.title": "Panel de Administracion",
+  "HomePage.info.message": "Bienvenido al panel de administración del grupo complejidad de  la Universidad Distrital Francisco José de Caldas, aquí podrás administrar nuestro contenido, desde el panel lateral tendrás acceso al tipo de contenido disponible para tu rol.",
+  "HomePage.info.roles.title": "Roles y Permisos",
+  "HomePage.info.roles.permissions.strapi-super-admin": "Los superadministradores pueden acceder y administrar todas las funciones y configuraciones.",
+  "HomePage.info.roles.permissions.strapi-editor": "Los editores pueden gestionar y publicar contenidos, incluso aquellos creados por otros usuarios.",
+  "HomePage.info.roles.permissions.strapi-author": "Los autores solo pueden administrar el contenido que ellos mismos han creado.",
+  "HomePage.info.content.collections": "Agregar Nuevo Contenido",
+  "HomePage.info.content.single": "Actualizar Valores Unicos",
+  "HomePage.info.website.link-text": "Ir al Sitio Web",
+  "HomePage.info.social.title": "Administrar las Redes Sociales",
+
   "Analytics": "Analytics",
   "Auth.advanced.allow_register": "Permitir registro",
   "Auth.components.Oops.text": "Tu cuenta ha sido suspendida",

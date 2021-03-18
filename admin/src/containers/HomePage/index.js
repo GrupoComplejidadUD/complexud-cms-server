@@ -47,10 +47,11 @@ const HomePage = ({ history: { push } }) => {
 
   const navigateTo = (path) => () => push(path);
   const username = get(auth.getUserInfo(), "firstname", "");
+  const roles = get(auth.getUserInfo(), "roles", "");
   return (
     <>
-      <FormattedMessage id="HomePage.helmet.title">
-        {(title) => <PageTitle title={title} />}
+      <FormattedMessage id="HomePage.info.title">
+        {(title) => <PageTitle title={`ComplexUD - ${title}`} />}
       </FormattedMessage>
       <Container className="container-fluid">
         <div className="row">
@@ -66,14 +67,32 @@ const HomePage = ({ history: { push } }) => {
                 {(msg) => <h1 id="mainHeader">{msg}</h1>}
               </FormattedMessage>
 
-              <FormattedMessage id="app.components.HomePage.welcomeBlock.content.again">
+              <FormattedMessage id="HomePage.info.message">
                 {(msg) => <P>{msg}</P>}
               </FormattedMessage>
+              <br />
+              <FormattedMessage id="HomePage.info.roles.title">
+                {(title) => <h3>{title}</h3>}
+              </FormattedMessage>
+
+              {roles.map((role) => (
+                <FormattedMessage
+                  id={`HomePage.info.roles.permissions.${role.code}`}
+                >
+                  {(msg) => (
+                    <P>
+                      <strong>{role.name}</strong>: {msg}
+                    </P>
+                  )}
+                </FormattedMessage>
+              ))}
 
               {collectionsLinks.length > 0 && (
                 <>
                   <Separator />
-                  <h4>Agregar Nuevo Contenido</h4>
+                  <FormattedMessage id="HomePage.info.content.collections">
+                    {(msg) => <h4>{msg}</h4>}
+                  </FormattedMessage>
                   <br />
                   <div>
                     {collectionsLinks.map((link) => (
@@ -92,7 +111,9 @@ const HomePage = ({ history: { push } }) => {
                 <>
                   <Separator />
                   <div>
-                    <h4>Actualizar Valores</h4>
+                    <FormattedMessage id="HomePage.info.content.single">
+                      {(msg) => <h4>{msg}</h4>}
+                    </FormattedMessage>
                     <br />
                     {singlesLinks.map((link) => (
                       <Button
@@ -111,17 +132,31 @@ const HomePage = ({ history: { push } }) => {
           <div className="col-md-12 col-lg-4">
             <Block style={{ paddingRight: 30, paddingBottom: 0 }}>
               <div className="text-center">
-                <img src={Logo} alt="ComplexUd Logo" />
+                <a
+                  rel="noopener noreferrer"
+                  href="https://complexud.com"
+                  target="_blank"
+                  style={{ textDecoration: "none" }}
+                >
+                  <img src={Logo} alt="ComplexUd Logo" />
+                </a>
               </div>
-              <ALink
-                rel="noopener noreferrer"
-                href="https://complexud.com"
-                target="_blank"
-              >
-                Go to Website
-              </ALink>
+              <FormattedMessage id="HomePage.info.website.link-text">
+                {(msg) => (
+                  <ALink
+                    rel="noopener noreferrer"
+                    href="https://complexud.com"
+                    target="_blank"
+                  >
+                    <span>{msg}</span>
+                  </ALink>
+                )}
+              </FormattedMessage>
+
               <Separator style={{ marginTop: 18, marginBottom: 18 }} />
-              <h3>Administrar las Redes Sociales</h3>
+              <FormattedMessage id="HomePage.info.social.title">
+                {(msg) => <h3>{msg}</h3>}
+              </FormattedMessage>
               <div
                 className="row social-wrapper"
                 style={{
