@@ -60,7 +60,7 @@ const HomePage = ({ history: { push } }) => {
       </FormattedMessage>
       <Container className="container-fluid">
         <div className="row">
-          <div className="col-lg-8 col-md-12">
+          <div className="col-md-7 col-xl-8">
             <Block>
               <Wave />
               <FormattedMessage
@@ -134,7 +134,7 @@ const HomePage = ({ history: { push } }) => {
             </Block>
           </div>
 
-          <div className="col-md-12 col-lg-4">
+          <div className="col-md-5 col-xl-4">
             <Block style={{ paddingRight: 30, paddingBottom: 0 }}>
               <div className="text-center">
                 <a
@@ -143,7 +143,7 @@ const HomePage = ({ history: { push } }) => {
                   target="_blank"
                   style={{ textDecoration: "none" }}
                 >
-                  <img src={Logo} alt="ComplexUd Logo" />
+                  <img className="img-fluid" src={Logo} alt="ComplexUd Logo" />
                 </a>
               </div>
               <FormattedMessage id="HomePage.info.website.link-text">
