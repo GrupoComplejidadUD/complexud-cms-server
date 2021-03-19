@@ -26,16 +26,21 @@ import Logo from "../../assets/images/logo.png";
 
 const SOCIAL_LINKS = [
   {
-    name: "GitHub",
-    link: "https://github.com/complexud",
+    name: "Facebook",
+    link:
+      "https://www.facebook.com/Grupo-de-Complejidad-de-la-Universidad-Distrital-567936853231644",
   },
   {
-    name: "Slack",
-    link: "https://slack.strapi.io/",
+    name: "GitHub",
+    link: "https://github.com/GrupoComplejidadUD",
+  },
+  {
+    name: "Youtube",
+    link: "https://www.youtube.com/channel/UCwMNplUJd2iBbNArsSeRsIQ",
   },
   {
     name: "Twitter",
-    link: "https://twitter.com/strapijs",
+    link: "https://twitter.com/complejidadud",
   },
 ];
 
