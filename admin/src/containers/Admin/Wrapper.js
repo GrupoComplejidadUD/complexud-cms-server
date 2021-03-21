@@ -13,9 +13,10 @@ const Wrapper = styled.div`
 
   .adminPageRightWrapper {
     width: 100%;
+    margin-left: 0;
     @media (min-width: ${sizes.desktop}) {
-      width: ${({ theme }) =>
-        `calc(100% - ${theme.main.sizes.leftMenu.width})`};
+      width: calc(100vw - ${({ theme }) => theme.main.sizes.leftMenu.width});
+      margin-left: ${(props) => props.theme.main.sizes.leftMenu.width};
     }
   }
 `;
