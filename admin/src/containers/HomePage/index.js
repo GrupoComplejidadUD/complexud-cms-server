@@ -60,7 +60,7 @@ const HomePage = ({ history: { push } }) => {
       </FormattedMessage>
       <Container className="container-fluid">
         <div className="row">
-          <div className="col-md-7 col-xl-8">
+          <div className="col-md-7">
             <Block>
               <Wave />
               <FormattedMessage
@@ -83,6 +83,7 @@ const HomePage = ({ history: { push } }) => {
               {roles.map((role) => (
                 <FormattedMessage
                   id={`HomePage.info.roles.permissions.${role.code}`}
+                  key={role.code}
                 >
                   {(msg) => (
                     <P>
@@ -134,7 +135,7 @@ const HomePage = ({ history: { push } }) => {
             </Block>
           </div>
 
-          <div className="col-md-5 col-xl-4">
+          <div className="col-md-5">
             <Block style={{ paddingRight: 30, paddingBottom: 0 }}>
               <div className="text-center">
                 <a
