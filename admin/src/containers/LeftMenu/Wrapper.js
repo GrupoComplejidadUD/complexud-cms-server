@@ -4,72 +4,33 @@
  *
  */
 
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import { sizes } from "strapi-helper-plugin";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-const Wrapper = styled.div`
-  position: fixed;
-  float: left;
-  top: 0;
-  left: -${(props) => props.theme.main.sizes.leftMenu.width};
-  transition: left 300ms;
+import WrapperStyled from "./WrapperStyles";
+import CloseBtn from "./CloseBtn";
 
-  @media (min-width: ${sizes.desktop}) {
-    left: 0;
-  }
+function Wrapper({ children }) {
+  const location = useLocation();
+  const [isSideBarOpen, openSideBar] = useState(false);
 
-  // Top-Navbar z-index id 1040;
-  z-index: 10000;
+  useEffect(() => {
+    openSideBar(false);
+  }, [location]);
 
-  height: 100vh;
-  width: ${(props) => props.theme.main.sizes.leftMenu.width};
-  background: ${(props) => props.theme.main.colors.strapi["blue-darker"]};
-
-  /* scrollbar overrides */
-  * {
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    ::-webkit-scrollbar-track,
-    ::-webkit-scrollbar-track:hover {
-      background-color: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: ${(props) =>
-        props.theme.main.colors.leftMenu["title-color"]};
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: ${(props) =>
-        props.theme.main.colors.leftMenu["link-color"]};
-    }
-
-    /* firefox */
-    scrollbar-color: ${(props) =>
-        props.theme.main.colors.leftMenu["title-color"]}
-      transparent;
-  }
-`;
-
-Wrapper.defaultProps = {
-  theme: {
-    main: {
-      colors: {
-        strapi: {},
-      },
-      sizes: {
-        header: {},
-        leftMenu: {},
-      },
-    },
-  },
-};
-
-Wrapper.propTypes = {
-  theme: PropTypes.object,
-};
+  return (
+    <>
+      <WrapperStyled isOpen={isSideBarOpen}>
+        <CloseBtn
+          active={isSideBarOpen}
+          onClick={() => openSideBar(!isSideBarOpen)}
+        >
+          <div></div>
+        </CloseBtn>
+        {children}
+      </WrapperStyled>
+    </>
+  );
+}
 
 export default Wrapper;
