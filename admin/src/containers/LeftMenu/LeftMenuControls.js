@@ -12,7 +12,7 @@ export const OpenMenu = styled.div`
   top: 0;
   left: 0;
 
-  width: 3rem;
+  width: 6rem;
   height: 100vh;
 
   @media (min-width: ${sizes.desktop}) {
@@ -22,6 +22,7 @@ export const OpenMenu = styled.div`
 
 export const CloseMenu = styled.div`
   position: fixed;
+  z-index: 10000;
   top: 0;
   left: 0;
 
