@@ -11,7 +11,7 @@ export const OpenMenu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-
+  z-index: 1000;
   width: 6rem;
   height: 100vh;
 
