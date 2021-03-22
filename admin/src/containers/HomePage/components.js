@@ -35,6 +35,8 @@ const Block = styled.div`
     display: inline-block;
   }
   #mainHeader {
+    margin-right: 5rem;
+
     &:after {
       content: "";
       width: 100%;
@@ -249,6 +251,8 @@ const LinkWrapper = styled.a`
 const SocialLinkWrapper = styled.div`
   position: relative;
   height: 24px;
+  min-width: 150px;
+  margin: auto;
   margin-bottom: 30px;
   font-size: 14px;
   font-weight: 500;
