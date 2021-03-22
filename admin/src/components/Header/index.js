@@ -11,7 +11,7 @@ const Header = styled.div`
   width: 100%;
   height: ${(props) => props.theme.main.sizes.header.height};
 
-  position: relative;
+  position: fixed;
   z-index: 1040;
 
   box-shadow: 0 1px 2px 0 rgba(40, 42, 49, 0.16);
