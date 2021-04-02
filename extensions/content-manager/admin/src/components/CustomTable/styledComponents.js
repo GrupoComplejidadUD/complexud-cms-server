@@ -20,6 +20,7 @@ const Table = styled.table`
 
   th,
   td {
+    white-space: nowrap;
     padding: 0 25px;
 
     label {
