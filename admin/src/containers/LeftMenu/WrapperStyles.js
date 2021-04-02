@@ -18,6 +18,9 @@ const Wrapper = styled.div`
 
   @media (min-width: ${sizes.desktop}) {
     left: 0;
+
+    // Fixed others z-index
+    z-index: 1000;
   }
 
   // Top-Navbar z-index id 1040;
