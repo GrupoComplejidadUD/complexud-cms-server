@@ -11,8 +11,8 @@ import pluginPermissions from "./permissions";
 export default (strapi) => {
   const pluginDescription =
     pluginPkg.strapi.description || pluginPkg.description;
-  const { icon } = pluginPkg.strapi;
   const { name } = pluginPkg.strapi;
+  const icon = "exchange-alt";
 
   const plugin = {
     blockerComponent: null,
