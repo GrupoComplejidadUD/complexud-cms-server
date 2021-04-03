@@ -52,11 +52,13 @@ const Sidebar = () => {
         </StyledLink>
       </Link>
 
+      {/*
       <Link to={`${basePluginUrl}/collection-types`}>
         <StyledLink>
           {formatMessage({ id: getTrad(`Sidebar.link.collectionTypes`) })}
         </StyledLink>
       </Link>
+      */}
 
       <a href="http://github.com/ijsto/strapi-plugin-migrate" target="_blank">
         <StyledLink>Contribute 🚀</StyledLink>
