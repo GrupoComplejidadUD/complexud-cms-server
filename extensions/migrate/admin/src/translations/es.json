@@ -40,5 +40,5 @@
   "notification.error.userPermissions.importSql": "Se produjo un error al importar los permisos de usuario.",
   "notification.error.userPermissions.retrieveSql.copied": "Copiado al Portapapeles!",
   "notification.error.userPermissions.importSql.success": "Los permisos de usuario se importaron correctamente!",
-  "plugin.name": "Strapi Migrate"
+  "plugin.name": "Migración de Strapi"
 }
