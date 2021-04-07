@@ -28,6 +28,7 @@ const asyncFilter = async (arr, predicate) => {
   return arr.filter((_v, index) => results[index]);
 };
 
+const filterPlugins = ({ uid }) => uid.startsWith("application::");
 const useLinks = () => {
   const [state, setState] = useState({
     isLoading: true,
@@ -51,13 +52,15 @@ const useLinks = () => {
       const filterPermissions = async (link) =>
         hasPermissions(permissions, link.permissions);
 
+      const filteredCollections = collectionTypes.filter(filterPlugins);
       const collectionsLinksFiltered = await asyncFilter(
-        generateLinks(collectionTypes),
+        generateLinks(filteredCollections),
         filterPermissions
       );
 
+      const filteredSingle = singleTypes.filter(filterPlugins);
       const singlesLinksFiltered = await asyncFilter(
-        generateLinks(singleTypes),
+        generateLinks(filteredSingle),
         filterPermissions
       );
 
