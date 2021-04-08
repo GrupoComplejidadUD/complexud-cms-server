@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "proyectos",
+  "info": {
+    "name": "proyectos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo",
+      "required": true
+    },
+    "descripcion": {
+      "type": "richtext",
+      "required": true
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "Iniciado",
+        "Pausado",
+        "Cancelado",
+        "Finalizado"
+      ],
+      "default": "Iniciado",
+      "required": true
+    },
+    "fecha_inicio": {
+      "type": "date"
+    },
+    "fecha_final": {
+      "type": "date"
+    },
+    "lineas_de_investigacion": {
+      "collection": "lineas",
+      "via": "proyectos",
+      "dominant": true
+    },
+    "autores": {
+      "collection": "investigadores",
+      "via": "proyectos",
+      "dominant": true
+    },
+    "directores": {
+      "collection": "investigadores",
+      "via": "proyectos_dirigidos",
+      "dominant": true
+    },
+    "publicaciones": {
+      "via": "proyecto",
+      "collection": "publicaciones"
+    }
+  }
+}

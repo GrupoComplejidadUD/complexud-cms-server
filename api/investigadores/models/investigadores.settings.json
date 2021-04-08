@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investigadores",
+  "info": {
+    "name": "investigadores",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "contacto": {
+      "type": "email",
+      "unique": true
+    },
+    "descripcion": {
+      "type": "text",
+      "private": true
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "Director",
+        "Profesor",
+        "Estudiante",
+        "Egresado"
+      ],
+      "default": "Estudiante",
+      "required": true
+    },
+    "vinculacion": {
+      "type": "enumeration",
+      "enum": [
+        "Miembro",
+        "Colaborador"
+      ],
+      "default": "Miembro",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "proyectos": {
+      "via": "autores",
+      "collection": "proyectos"
+    },
+    "proyectos_dirigidos": {
+      "via": "directores",
+      "collection": "proyectos"
+    },
+    "publicaciones": {
+      "via": "autores",
+      "collection": "publicaciones"
+    }
+  }
+}

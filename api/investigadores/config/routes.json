@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/investigadores",
+      "handler": "investigadores.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/investigadores/count",
+      "handler": "investigadores.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/investigadores/:id",
+      "handler": "investigadores.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/investigadores",
+      "handler": "investigadores.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/investigadores/:id",
+      "handler": "investigadores.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/investigadores/:id",
+      "handler": "investigadores.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
