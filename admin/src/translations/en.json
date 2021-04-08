@@ -1,6 +1,6 @@
 {
   "HomePage.info.title": "Admin Panel",
-  "HomePage.info.message": "Welcome to the administration panel of the complexity group of the Francisco José de Caldas District University, here you can manage our content, from the side panel you will have access to the type of content available for your role.",
+  "HomePage.info.message": "Welcome to the administration panel of the complexity group of the Distrital University Francisco José de Caldas, here you can manage our content, from the side panel you will have access to the type of content available for your role.",
   "HomePage.info.roles.title": "Roles and Permissions",
   "HomePage.info.roles.permissions.strapi-super-admin": "Super Admins can access and manage all features and settings.",
   "HomePage.info.roles.permissions.strapi-editor": "Editors can manage and publish contents including those of other users.",
@@ -9,7 +9,6 @@
   "HomePage.info.content.single": "Update Unique Values",
   "HomePage.info.website.link-text": "Go to Website",
   "HomePage.info.social.title": "Management Social Networks",
-
   "Analytics": "Analytics",
   "Auth.advanced.allow_register": "",
   "Auth.components.Oops.text": "Your account has been suspended",
