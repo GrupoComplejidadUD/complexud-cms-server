@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "lineas",
   "info": {
-    "name": "Lineas de Investigación"
+    "name": "Lineas de Investigación",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,23 +16,9 @@
       "required": true,
       "unique": true
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "nombre",
-      "required": true
-    },
     "descripcion": {
       "type": "richtext",
       "required": true
-    },
-    "imagen": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
     },
     "proyectos": {
       "via": "lineas_de_investigacion",

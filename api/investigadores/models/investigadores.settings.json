@@ -53,10 +53,6 @@
       "default": true,
       "required": true
     },
-    "proyectos": {
-      "via": "autores",
-      "collection": "proyectos"
-    },
     "proyectos_dirigidos": {
       "via": "directores",
       "collection": "proyectos"
@@ -64,6 +60,10 @@
     "publicaciones": {
       "via": "autores",
       "collection": "publicaciones"
+    },
+    "proyectos": {
+      "via": "integrantes",
+      "collection": "proyectos"
     }
   }
 }
