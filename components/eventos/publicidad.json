@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_eventos_publicidads",
+  "info": {
+    "name": "publicidad",
+    "icon": "bullhorn"
+  },
+  "options": {},
+  "attributes": {
+    "mensaje": {
+      "type": "richtext"
+    },
+    "poster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

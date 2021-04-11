@@ -20,6 +20,17 @@
       "type": "richtext",
       "required": true
     },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Investigacion",
+        "Tesis_Pregrado",
+        "Tesis_Maestria",
+        "Tesis_Doctoral"
+      ],
+      "default": "Investigacion",
+      "required": true
+    },
     "estado": {
       "type": "enumeration",
       "enum": [
@@ -43,18 +54,23 @@
       "dominant": true
     },
     "integrantes": {
-      "collection": "investigadores",
       "via": "proyectos",
+      "collection": "investigadores",
       "dominant": true
     },
     "directores": {
-      "collection": "investigadores",
       "via": "proyectos_dirigidos",
+      "collection": "investigadores",
       "dominant": true
     },
     "publicaciones": {
       "collection": "publicaciones",
       "via": "proyecto"
+    },
+    "sustentacion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.sustentacion"
     }
   }
 }

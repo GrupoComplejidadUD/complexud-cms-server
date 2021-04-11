@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "congresos",
+  "info": {
+    "name": "congresos",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "fecha_inicio": {
+      "type": "datetime",
+      "required": true
+    },
+    "fecha_final": {
+      "type": "datetime",
+      "required": true
+    },
+    "publicidad": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.publicidad"
+    },
+    "charlas": {
+      "collection": "eventos"
+    }
+  }
+}

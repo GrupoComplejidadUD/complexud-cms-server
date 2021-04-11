@@ -31,10 +31,10 @@
     "categoria": {
       "type": "enumeration",
       "enum": [
-        "Director",
         "Profesor",
         "Estudiante",
-        "Egresado"
+        "Egresado",
+        "Externo"
       ],
       "default": "Estudiante",
       "required": true
@@ -54,16 +54,20 @@
       "required": true
     },
     "proyectos_dirigidos": {
-      "via": "directores",
-      "collection": "proyectos"
+      "collection": "proyectos",
+      "via": "directores"
     },
     "publicaciones": {
-      "via": "autores",
-      "collection": "publicaciones"
+      "collection": "publicaciones",
+      "via": "autores"
     },
     "proyectos": {
-      "via": "integrantes",
-      "collection": "proyectos"
+      "collection": "proyectos",
+      "via": "integrantes"
+    },
+    "eventos": {
+      "via": "ponentes",
+      "collection": "eventos"
     }
   }
 }

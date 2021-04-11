@@ -44,8 +44,8 @@
       "model": "proyectos"
     },
     "autores": {
-      "collection": "investigadores",
       "via": "publicaciones",
+      "collection": "investigadores",
       "dominant": true
     }
   }
