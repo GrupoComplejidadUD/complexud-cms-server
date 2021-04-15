@@ -42,8 +42,8 @@
       "required": false
     },
     "ponentes": {
-      "collection": "investigadores",
       "via": "eventos",
+      "collection": "investigadores",
       "dominant": true
     },
     "tipo": {
@@ -56,6 +56,15 @@
       ],
       "default": "Seminario",
       "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
     }
   }
 }

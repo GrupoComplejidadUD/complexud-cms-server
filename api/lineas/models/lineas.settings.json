@@ -23,6 +23,15 @@
     "proyectos": {
       "via": "lineas_de_investigacion",
       "collection": "proyectos"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
     }
   }
 }

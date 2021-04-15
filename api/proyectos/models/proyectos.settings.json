@@ -64,13 +64,22 @@
       "dominant": true
     },
     "publicaciones": {
-      "collection": "publicaciones",
-      "via": "proyecto"
+      "via": "proyecto",
+      "collection": "publicaciones"
     },
     "sustentacion": {
       "type": "component",
       "repeatable": false,
       "component": "eventos.sustentacion"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
     }
   }
 }

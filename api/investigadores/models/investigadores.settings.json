@@ -66,8 +66,16 @@
       "via": "integrantes"
     },
     "eventos": {
-      "via": "ponentes",
-      "collection": "eventos"
+      "collection": "eventos",
+      "via": "ponentes"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "public_profile": {
+      "type": "component",
+      "repeatable": false,
+      "component": "users.profile"
     }
   }
 }

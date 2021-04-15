@@ -31,6 +31,15 @@
     },
     "charlas": {
       "collection": "eventos"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
     }
   }
 }
