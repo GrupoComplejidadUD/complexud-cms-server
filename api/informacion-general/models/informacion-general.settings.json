@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "general",
+  "info": {
+    "name": "Información General",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mision": {
+      "type": "richtext",
+      "required": true
+    },
+    "vision": {
+      "type": "richtext",
+      "required": true
+    },
+    "objetivos": {
+      "type": "richtext",
+      "required": true
+    },
+    "historia": {
+      "type": "richtext",
+      "required": true
+    },
+    "logros": {
+      "type": "richtext",
+      "required": true
+    },
+    "director": {
+      "model": "investigadores"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lineas",
+  "info": {
+    "name": "Lineas de Investigación",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "descripcion": {
+      "type": "richtext",
+      "required": true
+    },
+    "proyectos": {
+      "via": "lineas_de_investigacion",
+      "collection": "proyectos"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
+    }
+  }
+}

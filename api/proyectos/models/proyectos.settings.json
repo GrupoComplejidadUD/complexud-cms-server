@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "proyectos",
+  "info": {
+    "name": "proyectos",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "descripcion": {
+      "type": "richtext",
+      "required": true
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Investigacion",
+        "Tesis_Pregrado",
+        "Tesis_Maestria",
+        "Tesis_Doctoral"
+      ],
+      "default": "Investigacion",
+      "required": true
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "Iniciado",
+        "Pausado",
+        "Cancelado",
+        "Finalizado"
+      ],
+      "default": "Iniciado",
+      "required": true
+    },
+    "fecha_inicio": {
+      "type": "date"
+    },
+    "fecha_final": {
+      "type": "date"
+    },
+    "lineas_de_investigacion": {
+      "collection": "lineas",
+      "via": "proyectos",
+      "dominant": true
+    },
+    "integrantes": {
+      "via": "proyectos",
+      "collection": "investigadores",
+      "dominant": true
+    },
+    "directores": {
+      "via": "proyectos_dirigidos",
+      "collection": "investigadores",
+      "dominant": true
+    },
+    "publicaciones": {
+      "via": "proyecto",
+      "collection": "publicaciones"
+    },
+    "sustentacion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.sustentacion"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
+    }
+  }
+}

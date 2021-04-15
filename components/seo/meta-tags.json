@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_seo_meta_tags",
+  "info": {
+    "name": "meta_tags",
+    "icon": "newspaper"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

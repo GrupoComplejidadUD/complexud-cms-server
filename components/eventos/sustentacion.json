@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_eventos_sustentacions",
+  "info": {
+    "name": "sustentacion",
+    "icon": "award"
+  },
+  "options": {},
+  "attributes": {
+    "info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.info-evento",
+      "required": true
+    },
+    "publicidad": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.publicidad"
+    }
+  }
+}

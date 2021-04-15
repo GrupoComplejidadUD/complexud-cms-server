@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/congresos",
+      "handler": "congresos.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/congresos/count",
+      "handler": "congresos.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/congresos/:id",
+      "handler": "congresos.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/congresos",
+      "handler": "congresos.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/congresos/:id",
+      "handler": "congresos.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/congresos/:id",
+      "handler": "congresos.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
