@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investigadores",
+  "info": {
+    "name": "investigadores",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "contacto": {
+      "type": "email",
+      "unique": true
+    },
+    "descripcion": {
+      "type": "text",
+      "private": true
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "Profesor",
+        "Estudiante",
+        "Egresado",
+        "Externo"
+      ],
+      "default": "Estudiante",
+      "required": true
+    },
+    "vinculacion": {
+      "type": "enumeration",
+      "enum": [
+        "Miembro",
+        "Colaborador"
+      ],
+      "default": "Miembro",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "proyectos_dirigidos": {
+      "collection": "proyectos",
+      "via": "directores"
+    },
+    "publicaciones": {
+      "collection": "publicaciones",
+      "via": "autores"
+    },
+    "proyectos": {
+      "collection": "proyectos",
+      "via": "integrantes"
+    },
+    "eventos": {
+      "collection": "eventos",
+      "via": "ponentes"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "public_profile": {
+      "type": "component",
+      "repeatable": false,
+      "component": "users.profile"
+    }
+  }
+}

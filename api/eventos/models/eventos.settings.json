@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventos",
+  "info": {
+    "name": "eventos",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "descripcion": {
+      "type": "richtext",
+      "required": true
+    },
+    "info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.info-evento",
+      "required": true
+    },
+    "publicidad": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eventos.publicidad"
+    },
+    "multimedia": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "ponentes": {
+      "via": "eventos",
+      "collection": "investigadores",
+      "dominant": true
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Seminario",
+        "Conferencia",
+        "Charla",
+        "Otro"
+      ],
+      "default": "Seminario",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.meta-tags"
+    }
+  }
+}
