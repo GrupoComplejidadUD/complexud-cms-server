@@ -27,8 +27,7 @@ import Logo from "../../assets/images/logo.png";
 const SOCIAL_LINKS = [
   {
     name: "Facebook",
-    link:
-      "https://www.facebook.com/Grupo-de-Complejidad-de-la-Universidad-Distrital-567936853231644",
+    link: "https://www.facebook.com/Grupo-de-Complejidad-de-la-Universidad-Distrital-567936853231644",
   },
   {
     name: "GitHub",
