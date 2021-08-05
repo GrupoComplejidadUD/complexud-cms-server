@@ -9,6 +9,7 @@ import Item from "./Item";
 const SortableList = ({ addItem, buttonData, moveItem, removeItem }) => {
   const { relationsLayout } = useLayoutDnd();
 
+  // CHANGES: remove className="col-4"
   return (
     <div>
       <SortWrapper

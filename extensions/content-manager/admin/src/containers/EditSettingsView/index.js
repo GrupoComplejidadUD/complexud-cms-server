@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useReducer, useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 import { cloneDeep, flatMap, get, set, pick } from "lodash";
 import { request, useGlobalContext } from "strapi-helper-plugin";
 import { Inputs as Input } from "@buffetjs/custom";
@@ -41,25 +41,25 @@ const EditSettingsView = ({
   const [isDraggingSibling, setIsDraggingSibling] = useState(false);
 
   const schemasSelector = useMemo(makeSelectModelAndComponentSchemas, []);
-  const { schemas } = useSelector((state) => schemasSelector(state), []);
+  const { schemas } = useSelector(
+    (state) => schemasSelector(state),
+    shallowEqual
+  );
 
-  const {
-    componentLayouts,
-    initialData,
-    metaToEdit,
-    modifiedData,
-    metaForm,
-  } = reducerState.toJS();
+  const { componentLayouts, initialData, metaToEdit, modifiedData, metaForm } =
+    reducerState.toJS();
 
   const componentsAndModelsPossibleMainFields = useMemo(() => {
     return createPossibleMainFieldsForModelsAndComponents(schemas);
   }, [schemas]);
 
+  // CHANGES: col-8 to col-sm-8
   const fieldsReorderClassName = isContentTypeView ? "col-sm-8" : "col-12";
 
-  const attributes = useMemo(() => get(modifiedData, "attributes", {}), [
-    modifiedData,
-  ]);
+  const attributes = useMemo(
+    () => get(modifiedData, "attributes", {}),
+    [modifiedData]
+  );
   const editLayout = modifiedData.layouts.edit;
   const relationsLayout = modifiedData.layouts.editRelations;
   const editRelationsLayoutRemainingFields = useMemo(() => {
@@ -336,75 +336,73 @@ const EditSettingsView = ({
         isEditSettings
       >
         <div className="row">
-          <div className={fieldsReorderClassName}>
-            <LayoutTitle>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div>
-                  <FormTitle
-                    title={`${pluginId}.global.displayedFields`}
-                    description={`${pluginId}.containers.SettingPage.editSettings.description`}
-                  />
-                </div>
-                <div
-                  style={{
-                    marginTop: -6,
-                  }}
-                >
-                  {getInjectedComponents(
-                    "editSettingsView",
-                    "left.links",
-                    plugins,
-                    currentEnvironment,
-                    slug,
-                    push,
-                    {
-                      componentSlug: slug,
-                      type: isContentTypeView ? "content-types" : "components",
-                      modifiedData,
-                    }
-                  )}
-                </div>
-              </div>
-            </LayoutTitle>
-            <FieldsReorder />
-          </div>
-
-          {isContentTypeView && (
-            <div className="col-sm-4">
-              <LayoutTitle>
+          <LayoutTitle className={fieldsReorderClassName}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
                 <FormTitle
-                  title={`${pluginId}.containers.SettingPage.relations`}
+                  title={`${pluginId}.global.displayedFields`}
                   description={`${pluginId}.containers.SettingPage.editSettings.description`}
                 />
-              </LayoutTitle>
-              <SortableList
-                addItem={(name) => {
-                  dispatch({
-                    type: "ADD_RELATION",
-                    name,
-                  });
+              </div>
+              <div
+                style={{
+                  marginTop: -6,
                 }}
-                buttonData={editRelationsLayoutRemainingFields}
-                moveItem={(dragIndex, hoverIndex) => {
-                  dispatch({
-                    type: "MOVE_RELATION",
-                    dragIndex,
-                    hoverIndex,
-                  });
-                }}
-                removeItem={(index) => {
-                  dispatch({
-                    type: "REMOVE_RELATION",
-                    index,
-                  });
-                }}
-              />
+              >
+                {getInjectedComponents(
+                  "editSettingsView",
+                  "left.links",
+                  plugins,
+                  currentEnvironment,
+                  slug,
+                  push,
+                  {
+                    componentSlug: slug,
+                    type: isContentTypeView ? "content-types" : "components",
+                    modifiedData,
+                  }
+                )}
+              </div>
             </div>
+          </LayoutTitle>
+          {isContentTypeView && (
+            <LayoutTitle className="col-4">
+              <FormTitle
+                title={`${pluginId}.containers.SettingPage.relations`}
+                description={`${pluginId}.containers.SettingPage.editSettings.description`}
+              />
+            </LayoutTitle>
+          )}
+
+          <FieldsReorder className={fieldsReorderClassName} />
+          {isContentTypeView && (
+            <SortableList
+              addItem={(name) => {
+                dispatch({
+                  type: "ADD_RELATION",
+                  name,
+                });
+              }}
+              buttonData={editRelationsLayoutRemainingFields}
+              moveItem={(dragIndex, hoverIndex) => {
+                dispatch({
+                  type: "MOVE_RELATION",
+                  dragIndex,
+                  hoverIndex,
+                });
+              }}
+              removeItem={(index) => {
+                dispatch({
+                  type: "REMOVE_RELATION",
+                  index,
+                });
+              }}
+            />
           )}
         </div>
       </SettingsViewWrapper>

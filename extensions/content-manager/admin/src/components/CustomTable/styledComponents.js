@@ -7,6 +7,7 @@ const Table = styled.table`
   box-shadow: 0 2px 4px #e3e9f3;
   margin-bottom: 0;
 
+  // CHANGES: Add this Media
   @media (min-width: ${sizes.tablet}) {
     table-layout: fixed;
   }
