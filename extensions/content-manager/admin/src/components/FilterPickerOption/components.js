@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div`
   display: flex;
+  // CHANGES: Add this
   overflow-x: auto;
 
   input,

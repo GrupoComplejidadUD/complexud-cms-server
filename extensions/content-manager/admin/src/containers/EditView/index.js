@@ -5,10 +5,7 @@ import {
   BackHeader,
   BaselineAlignment,
   LiLink,
-  LoadingIndicatorPage,
   CheckPermissions,
-  useUser,
-  useUserPermissions,
   useGlobalContext,
 } from "strapi-helper-plugin";
 import { Padded } from "@buffetjs/core";
@@ -20,7 +17,7 @@ import FormWrapper from "../../components/FormWrapper";
 import FieldComponent from "../../components/FieldComponent";
 import Inputs from "../../components/Inputs";
 import SelectWrapper from "../../components/SelectWrapper";
-import { generatePermissionsObject, getInjectedComponents } from "../../utils";
+import { getInjectedComponents } from "../../utils";
 import CollectionTypeFormWrapper from "../CollectionTypeFormWrapper";
 import EditViewDataManagerProvider from "../EditViewDataManagerProvider";
 import SingleTypeFormWrapper from "../SingleTypeFormWrapper";
@@ -35,28 +32,16 @@ import InformationCard from "./InformationCard";
 
 /* eslint-disable  react/no-array-index-key */
 const EditView = ({
+  allowedActions,
   isSingleType,
   goBack,
   layout,
   slug,
-  state,
   id,
   origin,
+  userPermissions,
 }) => {
   const { currentEnvironment, plugins } = useGlobalContext();
-  // Permissions
-  const viewPermissions = useMemo(() => generatePermissionsObject(slug), [
-    slug,
-  ]);
-  const {
-    allowedActions,
-    isLoading: isLoadingForPermissions,
-  } = useUserPermissions(viewPermissions);
-  const userPermissions = useUser();
-
-  // Here in case of a 403 response when fetching data we will either redirect to the previous page
-  // Or to the homepage if there's no state in the history stack
-  const from = get(state, "from", "/");
 
   const {
     createActionAllowedFields,
@@ -102,15 +87,9 @@ const EditView = ({
     );
   }, [currentContentTypeLayoutData]);
 
-  if (isLoadingForPermissions) {
-    return <LoadingIndicatorPage />;
-  }
-
-  // TODO: create a hook to handle/provide the permissions this should be done for the i18n feature
   return (
     <DataManagementWrapper
       allLayoutData={layout}
-      from={from}
       slug={slug}
       id={id}
       origin={origin}
@@ -127,6 +106,7 @@ const EditView = ({
         onPublish,
         onPut,
         onUnpublish,
+        redirectionLink,
         status,
       }) => {
         return (
@@ -136,7 +116,7 @@ const EditView = ({
             createActionAllowedFields={createActionAllowedFields}
             componentsDataStructure={componentsDataStructure}
             contentTypeDataStructure={contentTypeDataStructure}
-            from={from}
+            from={redirectionLink}
             initialValues={data}
             isCreatingEntry={isCreatingEntry}
             isLoadingForData={isLoadingForData}
@@ -163,7 +143,7 @@ const EditView = ({
                     if (isDynamicZone(block)) {
                       const {
                         0: {
-                          0: { name, fieldSchema, metadatas },
+                          0: { name, fieldSchema, metadatas, labelIcon },
                         },
                       } = block;
                       const baselineAlignementSize =
@@ -178,6 +158,7 @@ const EditView = ({
                           <DynamicZone
                             name={name}
                             fieldSchema={fieldSchema}
+                            labelIcon={labelIcon}
                             metadatas={metadatas}
                           />
                         </BaselineAlignment>
@@ -191,7 +172,13 @@ const EditView = ({
                             <div className="row" key={fieldsBlockIndex}>
                               {fieldsBlock.map(
                                 (
-                                  { name, size, fieldSchema, metadatas },
+                                  {
+                                    name,
+                                    size,
+                                    fieldSchema,
+                                    labelIcon,
+                                    metadatas,
+                                  },
                                   fieldIndex
                                 ) => {
                                   const isComponent =
@@ -210,6 +197,7 @@ const EditView = ({
                                       <FieldComponent
                                         key={componentUid}
                                         componentUid={component}
+                                        labelIcon={labelIcon}
                                         isRepeatable={repeatable}
                                         label={metadatas.label}
                                         max={max}
@@ -219,6 +207,7 @@ const EditView = ({
                                     );
                                   }
 
+                                  // CHANGES: col-${size} to col-sm-${size}
                                   return (
                                     <div
                                       className={`col-sm-${size}`}
@@ -232,6 +221,7 @@ const EditView = ({
                                         }
                                         fieldSchema={fieldSchema}
                                         keys={name}
+                                        labelIcon={labelIcon}
                                         metadatas={metadatas}
                                       />
                                     </div>
@@ -255,15 +245,22 @@ const EditView = ({
                     >
                       <div style={{ paddingTop: "22px" }}>
                         {currentContentTypeLayoutData.layouts.editRelations.map(
-                          ({ name, fieldSchema, metadatas, queryInfos }) => {
+                          ({
+                            name,
+                            fieldSchema,
+                            labelIcon,
+                            metadatas,
+                            queryInfos,
+                          }) => {
                             return (
                               <SelectWrapper
                                 {...fieldSchema}
                                 {...metadatas}
-                                queryInfos={queryInfos}
                                 key={name}
+                                labelIcon={labelIcon}
                                 name={name}
                                 relationsType={fieldSchema.relationType}
+                                queryInfos={queryInfos}
                               />
                             );
                           }
@@ -315,10 +312,16 @@ EditView.defaultProps = {
   id: null,
   isSingleType: false,
   origin: null,
-  state: {},
+  userPermissions: [],
 };
 
 EditView.propTypes = {
+  allowedActions: PropTypes.shape({
+    canRead: PropTypes.bool.isRequired,
+    canUpdate: PropTypes.bool.isRequired,
+    canCreate: PropTypes.bool.isRequired,
+    canDelete: PropTypes.bool.isRequired,
+  }).isRequired,
   layout: PropTypes.shape({
     components: PropTypes.object.isRequired,
     contentType: PropTypes.shape({
@@ -333,8 +336,8 @@ EditView.propTypes = {
   isSingleType: PropTypes.bool,
   goBack: PropTypes.func.isRequired,
   origin: PropTypes.string,
-  state: PropTypes.object,
   slug: PropTypes.string.isRequired,
+  userPermissions: PropTypes.array,
 };
 
 export { EditView };

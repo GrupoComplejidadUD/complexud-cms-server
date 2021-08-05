@@ -31,6 +31,7 @@ const Flex = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 0 0 10px 30px !important;
+  //CHANGES: Remove this
   // margin-top: -10px;
   color: #c3c5c8;
   font-size: 13px;
