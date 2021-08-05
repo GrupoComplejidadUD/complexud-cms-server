@@ -11,15 +11,11 @@
       "required": false
     },
     "ubicacion": {
-      "type": "text"
+      "type": "text",
+      "required": false
     },
     "grabacion": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "videos"
-      ],
-      "plugin": "upload",
+      "type": "oembed",
       "required": false
     }
   }
