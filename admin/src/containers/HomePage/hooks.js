@@ -37,7 +37,7 @@ const useLinks = () => {
   });
 
   // Get Permissions of logged User
-  const permissions = useContext(UserContext);
+  const { userPermissions } = useContext(UserContext);
 
   // Get CollectionTypes and SingleTypes
   const {
@@ -50,7 +50,7 @@ const useLinks = () => {
   useEffect(() => {
     const getLinksPermissions = async () => {
       const filterPermissions = async (link) =>
-        hasPermissions(permissions, link.permissions);
+        hasPermissions(userPermissions, link.permissions);
 
       const filteredCollections = collectionTypes.filter(filterPlugins);
       const collectionsLinksFiltered = await asyncFilter(
@@ -73,7 +73,7 @@ const useLinks = () => {
 
     if (!isModulesLoading) getLinksPermissions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [permissions, collectionTypes, singleTypes, isModulesLoading]);
+  }, [userPermissions, collectionTypes, singleTypes, isModulesLoading]);
 
   return state;
 };
