@@ -10,14 +10,14 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "knex": "0.21.18",
+    "knex": "^0.95.9",
     "pg": "^8.5.1",
     "pg-connection-string": "^2.4.0",
     "react-swipeable": "^6.1.0",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^4.2.0",
     "strapi": "^3.6.5",
     "strapi-admin": "^3.6.5",
-    "strapi-connector-bookshelf": "^3.6.5",
+    "strapi-connector-bookshelf": "^3.5.1",
     "strapi-plugin-ckeditor5": "^1.12.0",
     "strapi-plugin-content-manager": "^3.6.5",
     "strapi-plugin-content-type-builder": "^3.6.5",
