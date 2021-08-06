@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "publicaciones",
   "info": {
-    "name": "publicaciones",
-    "description": ""
+    "name": "Publicaciones",
+    "description": "Artículos y Libros publicados del grupo complejidad"
   },
   "options": {
     "increments": true,
@@ -12,21 +12,17 @@
   },
   "attributes": {
     "titulo": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "nombre_revista": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "fecha_publicacion": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "identificador": {
       "type": "string",
-      "unique": true,
-      "required": true
+      "unique": true
     },
     "url_publicacion": {
       "type": "string",
@@ -50,7 +46,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "titulo"
+      "targetField": "titulo",
+      "required": true
     },
     "seo": {
       "type": "component",
