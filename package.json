@@ -11,26 +11,39 @@
   },
   "dependencies": {
     "knex": "0.21.18",
-    "pg": "^8.5.1",
+    "pg": "^8.7.1",
     "pg-connection-string": "^2.4.0",
-    "react-swipeable": "^6.1.0",
-    "sqlite3": "^5.0.0",
-    "strapi": "^3.6.5",
-    "strapi-admin": "^3.6.5",
-    "strapi-connector-bookshelf": "^3.6.5",
+    "react-swipeable": "^6.1.2",
+    "sqlite3": "5.0.0",
+    "strapi": "^3.6.6",
+    "strapi-admin": "^3.6.6",
+    "strapi-connector-bookshelf": "^3.6.6",
     "strapi-plugin-ckeditor5": "^1.12.0",
-    "strapi-plugin-content-manager": "^3.6.5",
-    "strapi-plugin-content-type-builder": "^3.6.5",
-    "strapi-plugin-email": "^3.6.5",
+    "strapi-plugin-content-manager": "^3.6.6",
+    "strapi-plugin-content-type-builder": "^3.6.6",
+    "strapi-plugin-email": "^3.6.6",
+    "strapi-plugin-i18n": "^3.6.6",
+    "strapi-plugin-import-export-content": "^0.4.1",
     "strapi-plugin-migrate": "^3.6.3",
-    "strapi-plugin-upload": "^3.6.5",
-    "strapi-plugin-users-permissions": "^3.6.5",
-    "strapi-provider-upload-cloudinary": "^3.6.5",
-    "strapi-utils": "^3.6.5"
+    "strapi-plugin-oembed": "^0.4.0",
+    "strapi-plugin-upload": "^3.6.6",
+    "strapi-plugin-users-permissions": "^3.6.6",
+    "strapi-plugin-vercel": "^0.0.5",
+    "strapi-provider-upload-cloudinary": "^3.6.6",
+    "strapi-utils": "^3.6.6"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
+  "contributors": [
+    {
+      "name": "Edison Enrique Peñuela Mesa",
+      "email": "edisonpe961206@hotmail.com",
+      "url": "http://github.com/edisonpem"
+    },
+    {
+      "name": "Tatiana Velandia Velandia",
+      "email": "tatyay@hotmail.com",
+      "url": "http://github.com/tatyay"
+    }
+  ],
   "engines": {
     "node": ">=10.16.0 <=14.x.x",
     "npm": "^6.0.0"
