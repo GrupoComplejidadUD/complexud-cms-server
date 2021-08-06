@@ -43,6 +43,10 @@
       "collection": "investigadores",
       "dominant": true
     },
+    "proyecto": {
+      "via": "sustentacion",
+      "model": "proyectos"
+    },
     "tipo": {
       "type": "enumeration",
       "enum": ["Seminario", "Conferencia", "Charla", "Sustentacion", "Otro"],

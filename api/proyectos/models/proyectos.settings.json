@@ -58,6 +58,10 @@
       "via": "proyecto",
       "collection": "publicaciones"
     },
+    "sustentacion": {
+      "via": "proyecto",
+      "model": "eventos"
+    },
     "slug": {
       "type": "uid",
       "targetField": "titulo",
