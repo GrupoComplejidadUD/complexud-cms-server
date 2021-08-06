@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "congresos",
   "info": {
-    "name": "congresos",
-    "description": ""
+    "name": "Congresos",
+    "description": "Los Congresos son eventos grandes que tienen varias charlas"
   },
   "options": {
     "increments": true,
@@ -13,16 +13,13 @@
   "attributes": {
     "nombre": {
       "type": "string",
-      "required": true,
       "unique": true
     },
     "fecha_inicio": {
-      "type": "datetime",
-      "required": true
+      "type": "datetime"
     },
     "fecha_final": {
-      "type": "datetime",
-      "required": true
+      "type": "datetime"
     },
     "publicidad": {
       "type": "component",
@@ -34,7 +31,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "nombre"
+      "targetField": "nombre",
+      "required": true
     },
     "seo": {
       "type": "component",

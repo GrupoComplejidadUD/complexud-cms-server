@@ -10,15 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/congresos/count",
-      "handler": "congresos.count",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/congresos/:id",
+      "path": "/congresos/:slug",
       "handler": "congresos.findOne",
       "config": {
         "policies": []
