@@ -41,16 +41,15 @@
     },
     "lineas_de_investigacion": {
       "collection": "lineas",
-      "via": "proyectos",
+      "via": "proyectos"
+    },
+    "directores": {
+      "via": "proyectos_dirigidos",
+      "collection": "investigadores",
       "dominant": true
     },
     "integrantes": {
       "via": "proyectos",
-      "collection": "investigadores",
-      "dominant": true
-    },
-    "directores": {
-      "via": "proyectos_dirigidos",
       "collection": "investigadores",
       "dominant": true
     },

@@ -27,7 +27,8 @@
       "component": "eventos.publicidad"
     },
     "charlas": {
-      "collection": "eventos"
+      "collection": "eventos",
+      "via": "congreso"
     },
     "slug": {
       "type": "uid",

@@ -39,17 +39,22 @@
       "type": "boolean",
       "default": true
     },
+    "perfil_publico": {
+      "type": "component",
+      "repeatable": false,
+      "component": "users.profile"
+    },
     "proyectos_dirigidos": {
       "collection": "proyectos",
       "via": "directores"
     },
-    "publicaciones": {
-      "collection": "publicaciones",
-      "via": "autores"
-    },
     "proyectos": {
       "collection": "proyectos",
       "via": "integrantes"
+    },
+    "publicaciones": {
+      "collection": "publicaciones",
+      "via": "autores"
     },
     "ponencias": {
       "collection": "eventos",
@@ -58,11 +63,6 @@
     "slug": {
       "type": "uid",
       "required": true
-    },
-    "perfil_publico": {
-      "type": "component",
-      "repeatable": false,
-      "component": "users.profile"
     }
   }
 }

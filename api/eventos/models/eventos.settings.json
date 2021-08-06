@@ -24,6 +24,11 @@
     "ubicacion": {
       "type": "text"
     },
+    "tipo": {
+      "type": "enumeration",
+      "enum": ["Seminario", "Conferencia", "Charla", "Sustentacion", "Otro"],
+      "default": "Seminario"
+    },
     "publicidad": {
       "type": "component",
       "repeatable": false,
@@ -32,10 +37,10 @@
     "grabacion": {
       "type": "oembed"
     },
-    "multimedia": {
+    "fotos": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": ["images", "videos"],
+      "allowedTypes": ["images"],
       "plugin": "upload"
     },
     "ponentes": {
@@ -47,10 +52,9 @@
       "via": "sustentacion",
       "model": "proyectos"
     },
-    "tipo": {
-      "type": "enumeration",
-      "enum": ["Seminario", "Conferencia", "Charla", "Sustentacion", "Otro"],
-      "default": "Seminario"
+    "congreso": {
+      "via": "charlas",
+      "model": "congresos"
     },
     "slug": {
       "type": "uid",

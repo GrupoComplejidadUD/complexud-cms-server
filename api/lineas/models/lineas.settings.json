@@ -20,7 +20,8 @@
     },
     "proyectos": {
       "via": "lineas_de_investigacion",
-      "collection": "proyectos"
+      "collection": "proyectos",
+      "dominant": true
     },
     "slug": {
       "type": "uid",

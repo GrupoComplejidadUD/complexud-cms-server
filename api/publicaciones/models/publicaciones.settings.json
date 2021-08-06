@@ -12,10 +12,11 @@
   },
   "attributes": {
     "titulo": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
-    "nombre_revista": {
-      "type": "string"
+    "revista": {
+      "type": "text"
     },
     "fecha_publicacion": {
       "type": "date"
@@ -23,6 +24,9 @@
     "identificador": {
       "type": "string",
       "unique": true
+    },
+    "abstract": {
+      "type": "richtext"
     },
     "url_publicacion": {
       "type": "string",
@@ -32,17 +36,14 @@
       "type": "string",
       "regex": "[-a-zA-Z0-9@:%_\\+.~#?&//=]{2,256}\\.[a-z]{2,4}\\b(\\/[-a-zA-Z0-9@:%_\\+.~#?&//=]*)?"
     },
-    "abstract": {
-      "type": "richtext"
-    },
-    "proyecto": {
-      "model": "proyectos",
-      "via": "publicaciones"
-    },
     "autores": {
       "via": "publicaciones",
       "collection": "investigadores",
       "dominant": true
+    },
+    "proyecto": {
+      "model": "proyectos",
+      "via": "publicaciones"
     },
     "slug": {
       "type": "uid",
