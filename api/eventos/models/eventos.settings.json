@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "eventos",
   "info": {
-    "name": "eventos",
-    "description": ""
+    "name": "Eventos",
+    "description": "Diferentes tipos de eventos del grupo Complejidad"
   },
   "options": {
     "increments": true,
@@ -11,35 +11,32 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "titulo": {
+    "nombre": {
       "type": "string",
-      "required": true,
       "unique": true
     },
     "descripcion": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
-    "info": {
-      "type": "component",
-      "repeatable": false,
-      "component": "eventos.info-evento",
-      "required": true
+    "fecha": {
+      "type": "datetime"
+    },
+    "ubicacion": {
+      "type": "text"
     },
     "publicidad": {
       "type": "component",
       "repeatable": false,
       "component": "eventos.publicidad"
     },
+    "grabacion": {
+      "type": "oembed"
+    },
     "multimedia": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+      "allowedTypes": ["images", "videos"],
+      "plugin": "upload"
     },
     "ponentes": {
       "via": "eventos",
@@ -48,18 +45,13 @@
     },
     "tipo": {
       "type": "enumeration",
-      "enum": [
-        "Seminario",
-        "Conferencia",
-        "Charla",
-        "Otro"
-      ],
-      "default": "Seminario",
-      "required": true
+      "enum": ["Seminario", "Conferencia", "Charla", "Sustentacion", "Otro"],
+      "default": "Seminario"
     },
     "slug": {
       "type": "uid",
-      "targetField": "titulo"
+      "targetField": "nombre",
+      "required": true
     },
     "seo": {
       "type": "component",
