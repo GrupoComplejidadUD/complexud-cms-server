@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/eventos/:id",
+      "path": "/eventos/:slug",
       "handler": "eventos.findOne",
       "config": {
         "policies": []

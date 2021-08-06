@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "investigadores",
   "info": {
-    "name": "investigadores",
-    "description": ""
+    "name": "Investigadores",
+    "description": "Miembros y Colaboradores del Grupo Complejidad"
   },
   "options": {
     "increments": true,
@@ -12,13 +12,10 @@
   },
   "attributes": {
     "nombre": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "apellido": {
-      "type": "string",
-      "required": true,
-      "unique": false
+      "type": "string"
     },
     "contacto": {
       "type": "email",
@@ -30,52 +27,42 @@
     },
     "categoria": {
       "type": "enumeration",
-      "enum": [
-        "Profesor",
-        "Estudiante",
-        "Egresado",
-        "Externo"
-      ],
-      "default": "Estudiante",
-      "required": true
+      "enum": ["Profesor", "Estudiante", "Egresado", "Externo"],
+      "default": "Estudiante"
     },
     "vinculacion": {
       "type": "enumeration",
-      "enum": [
-        "Miembro",
-        "Colaborador"
-      ],
-      "default": "Miembro",
-      "required": true
+      "enum": ["Miembro", "Colaborador"],
+      "default": "Miembro"
     },
     "activo": {
       "type": "boolean",
-      "default": true,
-      "required": true
+      "default": true
+    },
+    "perfil_publico": {
+      "type": "component",
+      "repeatable": false,
+      "component": "users.profile"
     },
     "proyectos_dirigidos": {
       "collection": "proyectos",
       "via": "directores"
     },
-    "publicaciones": {
-      "collection": "publicaciones",
-      "via": "autores"
-    },
     "proyectos": {
       "collection": "proyectos",
       "via": "integrantes"
     },
-    "eventos": {
+    "publicaciones": {
+      "collection": "publicaciones",
+      "via": "autores"
+    },
+    "ponencias": {
       "collection": "eventos",
       "via": "ponentes"
     },
     "slug": {
-      "type": "uid"
-    },
-    "public_profile": {
-      "type": "component",
-      "repeatable": false,
-      "component": "users.profile"
+      "type": "uid",
+      "required": true
     }
   }
 }

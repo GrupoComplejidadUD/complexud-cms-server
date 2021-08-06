@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "publicaciones",
   "info": {
-    "name": "publicaciones",
-    "description": ""
+    "name": "Publicaciones",
+    "description": "Artículos y Libros publicados del grupo complejidad"
   },
   "options": {
     "increments": true,
@@ -13,20 +13,20 @@
   "attributes": {
     "titulo": {
       "type": "string",
-      "required": true
+      "unique": true
     },
-    "nombre_revista": {
-      "type": "string",
-      "required": true
+    "revista": {
+      "type": "text"
     },
     "fecha_publicacion": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "identificador": {
       "type": "string",
-      "unique": true,
-      "required": true
+      "unique": true
+    },
+    "abstract": {
+      "type": "richtext"
     },
     "url_publicacion": {
       "type": "string",
@@ -36,21 +36,19 @@
       "type": "string",
       "regex": "[-a-zA-Z0-9@:%_\\+.~#?&//=]{2,256}\\.[a-z]{2,4}\\b(\\/[-a-zA-Z0-9@:%_\\+.~#?&//=]*)?"
     },
-    "abstract": {
-      "type": "richtext"
-    },
-    "proyecto": {
-      "model": "proyectos",
-      "via": "publicaciones"
-    },
     "autores": {
       "via": "publicaciones",
       "collection": "investigadores",
       "dominant": true
     },
+    "proyecto": {
+      "model": "proyectos",
+      "via": "publicaciones"
+    },
     "slug": {
       "type": "uid",
-      "targetField": "titulo"
+      "targetField": "titulo",
+      "required": true
     },
     "seo": {
       "type": "component",

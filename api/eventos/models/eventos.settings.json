@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "eventos",
   "info": {
-    "name": "eventos",
-    "description": ""
+    "name": "Eventos",
+    "description": "Diferentes tipos de eventos del grupo Complejidad"
   },
   "options": {
     "increments": true,
@@ -11,55 +11,55 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "titulo": {
+    "nombre": {
       "type": "string",
-      "required": true,
       "unique": true
     },
     "descripcion": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
-    "info": {
-      "type": "component",
-      "repeatable": false,
-      "component": "eventos.info-evento",
-      "required": true
+    "fecha": {
+      "type": "datetime"
+    },
+    "ubicacion": {
+      "type": "text"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": ["Seminario", "Conferencia", "Charla", "Sustentacion", "Otro"],
+      "default": "Seminario"
     },
     "publicidad": {
       "type": "component",
       "repeatable": false,
       "component": "eventos.publicidad"
     },
-    "multimedia": {
+    "grabacion": {
+      "type": "oembed"
+    },
+    "fotos": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+      "allowedTypes": ["images"],
+      "plugin": "upload"
     },
     "ponentes": {
-      "via": "eventos",
+      "via": "ponencias",
       "collection": "investigadores",
       "dominant": true
     },
-    "tipo": {
-      "type": "enumeration",
-      "enum": [
-        "Seminario",
-        "Conferencia",
-        "Charla",
-        "Otro"
-      ],
-      "default": "Seminario",
-      "required": true
+    "proyecto": {
+      "via": "sustentacion",
+      "model": "proyectos"
+    },
+    "congreso": {
+      "via": "charlas",
+      "model": "congresos"
     },
     "slug": {
       "type": "uid",
-      "targetField": "titulo"
+      "targetField": "nombre",
+      "required": true
     },
     "seo": {
       "type": "component",
