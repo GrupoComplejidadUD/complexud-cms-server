@@ -91,6 +91,7 @@ const FieldsReorder = ({ className }) => {
   );
 };
 
+// CHANGES: delete default className: from col-8 to ''
 FieldsReorder.defaultProps = {
   className: "",
 };

@@ -3,21 +3,21 @@
   "info": {
     "name": "profile",
     "icon": "address-card",
-    "description": ""
+    "description": "Perfil Público de los Investigadores"
   },
   "options": {},
   "attributes": {
-    "description": {
+    "descripcion": {
       "type": "richtext"
     },
-    "photo": {
+    "foto": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
+      "allowedTypes": ["images"],
+      "plugin": "upload"
+    },
+    "correo": {
+      "type": "email"
     }
   }
 }

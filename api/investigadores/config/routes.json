@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/investigadores/:id",
+      "path": "/investigadores/:slug",
       "handler": "investigadores.findOne",
       "config": {
         "policies": []

@@ -193,6 +193,7 @@ const DraggedItem = ({
                           );
                         }
 
+                        // CHANGES: col-${size} to col-sm-${size}
                         return (
                           <div key={name} className={`col-sm-${size}`}>
                             <Inputs

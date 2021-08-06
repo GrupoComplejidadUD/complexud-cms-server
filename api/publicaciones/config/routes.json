@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/publicaciones/:id",
+      "path": "/publicaciones/:slug",
       "handler": "publicaciones.findOne",
       "config": {
         "policies": []

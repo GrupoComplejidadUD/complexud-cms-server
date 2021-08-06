@@ -1,47 +1,45 @@
 import pluginPkg from "../../package.json";
 import pluginId from "./pluginId";
-import pluginLogo from "./assets/images/logo.png";
 
 import App from "./containers/App";
-import Initializer from "./containers/Initializer";
-import lifecycles from "./lifecycles";
-import trads from "./translations";
-import pluginPermissions from "./permissions";
 
 export default (strapi) => {
   const pluginDescription =
     pluginPkg.strapi.description || pluginPkg.description;
-  const { name } = pluginPkg.strapi;
-  const icon = "exchange-alt";
 
   const plugin = {
     blockerComponent: null,
     blockerComponentProps: {},
     description: pluginDescription,
-    icon,
+    icon: "rocket",
     id: pluginId,
-    initializer: Initializer,
+    isReady: true,
+    initializer: () => null,
     injectedComponents: [],
-    isReady: false,
     isRequired: pluginPkg.strapi.required || false,
     layout: null,
-    lifecycles,
-    pluginLogo,
+    lifecycles: () => {},
     mainComponent: App,
-    name,
+    name: pluginPkg.strapi.name,
     preventComponentRendering: false,
-    trads,
+    trads: {},
     menu: {
       pluginsSectionLinks: [
         {
           destination: `/plugins/${pluginId}`,
-          icon,
+          icon: "rocket",
           label: {
             id: `${pluginId}.plugin.name`,
-            defaultMessage: name,
+            defaultMessage: "Vercel Deployments",
           },
-          name,
-          permissions: pluginPermissions.main,
+          name: pluginPkg.strapi.name,
+          permissions: [
+            // Uncomment to set the permissions of the plugin here
+            // {
+            //   action: '', // the action name should be plugins::plugin-name.actionType
+            //   subject: null,
+            // },
+          ],
         },
       ],
     },

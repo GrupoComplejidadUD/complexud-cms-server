@@ -2,8 +2,8 @@
   "kind": "collectionType",
   "collectionName": "proyectos",
   "info": {
-    "name": "proyectos",
-    "description": ""
+    "name": "Proyectos",
+    "description": "Proyectos de investigación del Grupo Complejidad"
   },
   "options": {
     "increments": true,
@@ -13,12 +13,10 @@
   "attributes": {
     "titulo": {
       "type": "string",
-      "unique": true,
-      "required": true
+      "unique": true
     },
     "descripcion": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "tipo": {
       "type": "enumeration",
@@ -28,19 +26,12 @@
         "Tesis_Maestria",
         "Tesis_Doctoral"
       ],
-      "default": "Investigacion",
-      "required": true
+      "default": "Investigacion"
     },
     "estado": {
       "type": "enumeration",
-      "enum": [
-        "Iniciado",
-        "Pausado",
-        "Cancelado",
-        "Finalizado"
-      ],
-      "default": "Iniciado",
-      "required": true
+      "enum": ["Iniciado", "Pausado", "Cancelado", "Finalizado"],
+      "default": "Iniciado"
     },
     "fecha_inicio": {
       "type": "date"
@@ -50,16 +41,15 @@
     },
     "lineas_de_investigacion": {
       "collection": "lineas",
-      "via": "proyectos",
+      "via": "proyectos"
+    },
+    "directores": {
+      "via": "proyectos_dirigidos",
+      "collection": "investigadores",
       "dominant": true
     },
     "integrantes": {
       "via": "proyectos",
-      "collection": "investigadores",
-      "dominant": true
-    },
-    "directores": {
-      "via": "proyectos_dirigidos",
       "collection": "investigadores",
       "dominant": true
     },
@@ -68,13 +58,13 @@
       "collection": "publicaciones"
     },
     "sustentacion": {
-      "type": "component",
-      "repeatable": false,
-      "component": "eventos.sustentacion"
+      "via": "proyecto",
+      "model": "eventos"
     },
     "slug": {
       "type": "uid",
-      "targetField": "titulo"
+      "targetField": "titulo",
+      "required": true
     },
     "seo": {
       "type": "component",
