@@ -2,7 +2,8 @@
   "collectionName": "components_eventos_publicidads",
   "info": {
     "name": "publicidad",
-    "icon": "bullhorn"
+    "icon": "bullhorn",
+    "description": "Públicidad en  redes sobre los eventos del grupo"
   },
   "options": {},
   "attributes": {
@@ -12,11 +13,8 @@
     "poster": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
+      "allowedTypes": ["images"],
+      "plugin": "upload"
     }
   }
 }
