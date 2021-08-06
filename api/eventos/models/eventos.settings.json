@@ -39,7 +39,7 @@
       "plugin": "upload"
     },
     "ponentes": {
-      "via": "eventos",
+      "via": "ponencias",
       "collection": "investigadores",
       "dominant": true
     },

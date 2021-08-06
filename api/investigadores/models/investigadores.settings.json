@@ -51,7 +51,7 @@
       "collection": "proyectos",
       "via": "integrantes"
     },
-    "eventos": {
+    "ponencias": {
       "collection": "eventos",
       "via": "ponentes"
     },
