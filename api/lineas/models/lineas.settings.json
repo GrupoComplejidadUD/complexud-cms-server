@@ -3,7 +3,7 @@
   "collectionName": "lineas",
   "info": {
     "name": "Lineas de Investigación",
-    "description": ""
+    "description": "Las diferentes lineas de investigación del grupo complejidad"
   },
   "options": {
     "increments": true,
@@ -13,12 +13,10 @@
   "attributes": {
     "nombre": {
       "type": "string",
-      "required": true,
       "unique": true
     },
     "descripcion": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "proyectos": {
       "via": "lineas_de_investigacion",
@@ -26,7 +24,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "nombre"
+      "targetField": "nombre",
+      "required": true
     },
     "seo": {
       "type": "component",
