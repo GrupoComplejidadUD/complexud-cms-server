@@ -3,7 +3,7 @@
   "collectionName": "general",
   "info": {
     "name": "Información General",
-    "description": ""
+    "description": "Información General del Grupo Complejidad"
   },
   "options": {
     "increments": true,
@@ -12,24 +12,19 @@
   },
   "attributes": {
     "mision": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "vision": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "objetivos": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "historia": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "logros": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "director": {
       "model": "investigadores"
