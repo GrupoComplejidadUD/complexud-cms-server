@@ -19,7 +19,8 @@
     },
     "contacto": {
       "type": "email",
-      "unique": true
+      "unique": true,
+      "private": true
     },
     "descripcion": {
       "type": "text",
